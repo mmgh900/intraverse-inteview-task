@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>راهنمای Intraverse dApp</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Tahoma', 'Vazirmatn', 'Segoe UI', sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      line-height: 2;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.2em;
+      color: #818cf8;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #2d2d44;
+      padding-bottom: 15px;
+    }
+    h2 {
+      font-size: 1.5em;
+      color: #a78bfa;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      padding-right: 15px;
+      border-right: 4px solid #6366f1;
+    }
+    h3 {
+      font-size: 1.2em;
+      color: #c4b5fd;
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    .highlight {
+      background: #1e1b4b;
+      border: 1px solid #3730a3;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .warning {
+      background: #451a03;
+      border: 1px solid #92400e;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .success {
+      background: #052e16;
+      border: 1px solid #166534;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    code {
+      background: #1e1e2e;
+      color: #f9a8d4;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      direction: ltr;
+      display: inline-block;
+    }
+    .code-block {
+      background: #1e1e2e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin: 15px 0;
+      direction: ltr;
+      text-align: left;
+      font-family: monospace;
+      color: #a5f3fc;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 12px 15px;
+      text-align: right;
+    }
+    th {
+      background: #1e1b4b;
+      color: #a78bfa;
+    }
+    td { background: #111; }
+    .badge {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: bold;
+    }
+    .mainnet { background: #166534; color: #86efac; }
+    .testnet { background: #92400e; color: #fcd34d; }
+    ol, ul {
+      margin: 10px 30px 20px 0;
+    }
+    li { margin-bottom: 8px; }
+    .step {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      counter-increment: step-counter;
+    }
+    .step::before {
+      content: "مرحله " counter(step-counter);
+      display: inline-block;
+      background: #6366f1;
+      color: white;
+      padding: 2px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      margin-bottom: 10px;
+    }
+    .steps { counter-reset: step-counter; }
+    .emoji { font-style: normal; }
+    a { color: #818cf8; }
+    .rarity-table td:first-child { font-weight: bold; }
+    .diagram {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 25px;
+      margin: 20px 0;
+      text-align: center;
+      direction: ltr;
+      font-family: monospace;
+      color: #9ca3af;
+      line-height: 1.8;
+    }
+    .toc {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 20px 30px;
+      margin: 20px 0;
+    }
+    .toc a {
+      color: #a78bfa;
+      text-decoration: none;
+    }
+    .toc a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>&#x1F680; راهنمای کامل Intraverse dApp</h1>
+    <p>این سند به شما توضیح می‌دهد که این پروژه چیست، چگونه کار می‌کند و چطور از آن استفاده کنید.</p>
+
+    <div class="toc">
+      <h3>فهرست مطالب</h3>
+      <ol>
+        <li><a href="#what">این پروژه چیست؟</a></li>
+        <li><a href="#blockchain">بلاکچین به زبان ساده</a></li>
+        <li><a href="#mint">مینت (Mint) یعنی چه؟</a></li>
+        <li><a href="#upgrade">ارتقا (Upgrade) چیست؟</a></li>
+        <li><a href="#rarities">سیستم نادری (Rarity)</a></li>
+        <li><a href="#networks">تفاوت مین‌نت و تست‌نت</a></li>
+        <li><a href="#where">توکن‌های ما کجا هستند؟</a></li>
+        <li><a href="#setup">نحوه راه‌اندازی و استفاده</a></li>
+        <li><a href="#architecture">معماری پروژه</a></li>
+        <li><a href="#testing">راهنمای تست بدون گس</a></li>
+      </ol>
+    </div>
+
+    <!-- ============================================ -->
+    <h2 id="what">&#x1F4A1; این پروژه چیست؟</h2>
+    <p>
+      <strong>Intraverse dApp</strong> یک اپلیکیشن غیرمتمرکز (Decentralized Application) است که روی بلاکچین
+      <strong>Somnia</strong> ساخته شده. این برنامه به کاربران اجازه می‌دهد:
+    </p>
+    <ul>
+      <li><strong>مینت (Mint):</strong> ساخت توکن‌های جدید به نام "Moon Pass"</li>
+      <li><strong>مدیریت موجودی:</strong> مشاهده تمام توکن‌های خود در ۱۳ سطح نادری</li>
+      <li><strong>ارتقا (Upgrade):</strong> سوزاندن ۲ توکن از یک سطح برای دریافت ۱ توکن از سطح بالاتر</li>
+      <li><strong>آنالیتیکس:</strong> مشاهده آمار تراکنش‌ها، گس مصرفی و نمودارهای روزانه</li>
+    </ul>
+
+    <!-- ============================================ -->
+    <h2 id="blockchain">&#x26D3;&#xFE0F; بلاکچین به زبان ساده</h2>
+    <p>
+      بلاکچین مثل یک دفتر حساب عمومی است که هیچ‌کس نمی‌تواند آن را تغییر دهد.
+      وقتی شما یک توکن مینت می‌کنید، این عمل به صورت دائمی در بلاکچین ثبت می‌شود.
+    </p>
+    <div class="highlight">
+      <h3>اصطلاحات کلیدی:</h3>
+      <ul>
+        <li><strong>کیف پول (Wallet):</strong> مثل حساب بانکی شما در بلاکچین. MetaMask یکی از محبوب‌ترین کیف پول‌هاست.</li>
+        <li><strong>قرارداد هوشمند (Smart Contract):</strong> برنامه‌ای که روی بلاکچین اجرا می‌شود و قوانین بازی را مشخص می‌کند.</li>
+        <li><strong>تراکنش (Transaction):</strong> هر عملی که روی بلاکچین انجام می‌دهید (مثل مینت کردن).</li>
+        <li><strong>گس (Gas):</strong> هزینه‌ای که برای انجام تراکنش پرداخت می‌کنید (مثل کارمزد بانکی).</li>
+        <li><strong>توکن (Token):</strong> یک دارایی دیجیتال که مالکیت آن در بلاکچین ثبت شده.</li>
+      </ul>
+    </div>
+
+    <!-- ============================================ -->
+    <h2 id="mint">&#x1F3AD; مینت (Mint) یعنی چه؟</h2>
+    <p>
+      مینت کردن یعنی <strong>ساختن یک توکن جدید</strong> روی بلاکچین.
+      وقتی شما دکمه "Mint" را می‌زنید:
+    </p>
+    <div class="steps">
+      <div class="step">
+        <p>کیف پول MetaMask باز می‌شود و از شما تأیید می‌خواهد.</p>
+      </div>
+      <div class="step">
+        <p>یک تراکنش به بلاکچین Somnia ارسال می‌شود.</p>
+      </div>
+      <div class="step">
+        <p>بلاکچین تراکنش را پردازش می‌کند (چند ثانیه طول می‌کشد).</p>
+      </div>
+      <div class="step">
+        <p>یک توکن "Moon Pass" جدید با نادری تصادفی (Common تا Supreme) به کیف پول شما اضافه می‌شود.</p>
+      </div>
+    </div>
+    <div class="warning">
+      <strong>&#x26A0;&#xFE0F; توجه:</strong> هر مینت نیاز به مقداری ارز SOMI (ارز بومی شبکه Somnia) برای پرداخت گس دارد.
+      اگر موجودی SOMI ندارید، تراکنش با خطا مواجه می‌شود.
+    </div>
+
+    <!-- ============================================ -->
+    <h2 id="upgrade">&#x2B06;&#xFE0F; ارتقا (Upgrade) چیست؟</h2>
+    <p>
+      سیستم ارتقا به شما اجازه می‌دهد توکن‌های سطح پایین‌تر را به توکن‌های نادرتر تبدیل کنید:
+    </p>
+    <div class="diagram">
+      2x Common ──→ 1x Uncommon<br>
+      2x Uncommon ──→ 1x Rare<br>
+      2x Rare ──→ 1x Epic<br>
+      ... و به همین ترتیب ...<br>
+      2x Omega ──→ 1x Supreme &#x1F451;
+    </div>
+    <p>
+      یعنی <strong>۲ توکن از یک سطح سوزانده (burn) می‌شوند</strong> و <strong>۱ توکن از سطح بالاتر</strong> دریافت می‌کنید.
+      توکن‌های سوزانده شده برای همیشه از بین می‌روند.
+    </p>
+
+    <!-- ============================================ -->
+    <h2 id="rarities">&#x1F48E; سیستم نادری (Rarity)</h2>
+    <p>هر توکن Moon Pass دارای یکی از ۱۳ سطح نادری است:</p>
+    <table class="rarity-table">
+      <thead>
+        <tr>
+          <th>سطح</th>
+          <th>نام</th>
+          <th>ضریب پایه</th>
+          <th>حداکثر ضریب</th>
+          <th>رنگ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Common (معمولی)</td><td>1.2x</td><td>2x</td><td style="color:#9CA3AF">&#x25CF; خاکستری</td></tr>
+        <tr><td>2</td><td>Uncommon (غیرمعمول)</td><td>1.5x</td><td>3x</td><td style="color:#22C55E">&#x25CF; سبز</td></tr>
+        <tr><td>3</td><td>Rare (نادر)</td><td>2x</td><td>5x</td><td style="color:#3B82F6">&#x25CF; آبی</td></tr>
+        <tr><td>4</td><td>Epic (حماسی)</td><td>4x</td><td>10x</td><td style="color:#A855F7">&#x25CF; بنفش</td></tr>
+        <tr><td>5</td><td>Legendary (افسانه‌ای)</td><td>10x</td><td>20x</td><td style="color:#F59E0B">&#x25CF; طلایی</td></tr>
+        <tr><td>6</td><td>Mythic (اسطوره‌ای)</td><td>20x</td><td>40x</td><td style="color:#EF4444">&#x25CF; قرمز</td></tr>
+        <tr><td>7</td><td>Divine (الهی)</td><td>44x</td><td>60x</td><td style="color:#EC4899">&#x25CF; صورتی</td></tr>
+        <tr><td>8</td><td>Celestial (آسمانی)</td><td>56x</td><td>80x</td><td style="color:#8B5CF6">&#x25CF; بنفش روشن</td></tr>
+        <tr><td>9</td><td>Transcendent (فراتر)</td><td>70x</td><td>90x</td><td style="color:#06B6D4">&#x25CF; فیروزه‌ای</td></tr>
+        <tr><td>10</td><td>Immortal (جاودانه)</td><td>80x</td><td>110x</td><td style="color:#14B8A6">&#x25CF; سبزآبی</td></tr>
+        <tr><td>11</td><td>Eternal (ابدی)</td><td>90x</td><td>130x</td><td style="color:#F97316">&#x25CF; نارنجی</td></tr>
+        <tr><td>12</td><td>Omega (اُمگا)</td><td>100x</td><td>150x</td><td style="color:#DC2626">&#x25CF; قرمز تیره</td></tr>
+        <tr><td>13</td><td>Supreme (برتر)</td><td>120x</td><td>200x</td><td style="color:#FBBF24">&#x25CF; طلایی درخشان</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ============================================ -->
+    <h2 id="networks">&#x1F310; تفاوت مین‌نت و تست‌نت</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th><span class="badge mainnet">Mainnet (مین‌نت)</span></th>
+          <th><span class="badge testnet">Testnet (تست‌نت)</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>چیست؟</strong></td>
+          <td>شبکه اصلی و واقعی بلاکچین</td>
+          <td>شبکه آزمایشی برای تست و توسعه</td>
+        </tr>
+        <tr>
+          <td><strong>ارز</strong></td>
+          <td>SOMI (ارزش واقعی دارد)</td>
+          <td>STT (ارزش واقعی ندارد، رایگان)</td>
+        </tr>
+        <tr>
+          <td><strong>Chain ID</strong></td>
+          <td><code>5031</code></td>
+          <td><code>50312</code></td>
+        </tr>
+        <tr>
+          <td><strong>RPC</strong></td>
+          <td><code>api.infra.mainnet.somnia.network</code></td>
+          <td><code>dream-rpc.somnia.network</code></td>
+        </tr>
+        <tr>
+          <td><strong>Explorer</strong></td>
+          <td><a href="https://explorer.somnia.network">explorer.somnia.network</a></td>
+          <td><a href="https://shannon-explorer.somnia.network">shannon-explorer.somnia.network</a></td>
+        </tr>
+        <tr>
+          <td><strong>کاربرد</strong></td>
+          <td>استفاده واقعی، توکن‌های واقعی</td>
+          <td>تست کد، بدون ریسک مالی</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight">
+      <strong>خلاصه:</strong>
+      تست‌نت مثل یک محیط تمرینی است. هر کاری که آنجا انجام دهید واقعی نیست.
+      مین‌نت محیط واقعی است و توکن‌ها ارزش واقعی دارند.
+    </div>
+
+    <!-- ============================================ -->
+    <h2 id="where">&#x1F4CD; توکن‌های ما کجا هستند؟</h2>
+
+    <div class="success">
+      <strong>&#x2705; پاسخ: قرارداد هوشمند این پروژه فقط روی مین‌نت (Mainnet) دیپلوی شده.</strong>
+      <p style="margin-top:10px">
+        آدرس قرارداد: <code>0xC82E0CE02623972330164657e8C3e568d8f351FA</code>
+      </p>
+      <p>
+        این قرارداد روی تست‌نت وجود ندارد. بنابراین تمام توکن‌های Moon Pass روی <strong>شبکه اصلی Somnia (Chain ID: 5031)</strong> هستند.
+      </p>
+    </div>
+
+    <div class="warning">
+      <strong>&#x26A0;&#xFE0F; نکته مهم:</strong>
+      اگر در MetaMask شبکه تست‌نت را انتخاب کنید، اپلیکیشن نمی‌تواند توکن‌های شما را پیدا کند
+      چون قرارداد در آن شبکه وجود ندارد. حتماً شبکه <strong>Somnia Mainnet</strong> را انتخاب کنید.
+    </div>
+
+    <!-- ============================================ -->
+    <h2 id="setup">&#x1F6E0;&#xFE0F; نحوه راه‌اندازی و استفاده</h2>
+
+    <h3>پیش‌نیازها</h3>
+    <ul>
+      <li>مرورگر Chrome یا Firefox</li>
+      <li>افزونه <a href="https://metamask.io">MetaMask</a> نصب شده</li>
+      <li>مقداری ارز SOMI در کیف پول (برای پرداخت گس)</li>
+    </ul>
+
+    <h3>اضافه کردن شبکه Somnia به MetaMask</h3>
+    <div class="steps">
+      <div class="step">
+        <p>MetaMask را باز کنید و روی منوی شبکه‌ها (بالای صفحه) کلیک کنید.</p>
+      </div>
+      <div class="step">
+        <p>روی <strong>"Add network"</strong> و سپس <strong>"Add a network manually"</strong> کلیک کنید.</p>
+      </div>
+      <div class="step">
+        <p>اطلاعات زیر را وارد کنید:</p>
+        <table>
+          <tr><td><strong>Network Name</strong></td><td>Somnia</td></tr>
+          <tr><td><strong>New RPC URL</strong></td><td><code>https://api.infra.mainnet.somnia.network/</code></td></tr>
+          <tr><td><strong>Chain ID</strong></td><td><code>5031</code></td></tr>
+          <tr><td><strong>Currency Symbol</strong></td><td><code>SOMI</code></td></tr>
+          <tr><td><strong>Block Explorer</strong></td><td><code>https://explorer.somnia.network</code></td></tr>
+        </table>
+      </div>
+      <div class="step">
+        <p>روی <strong>Save</strong> کلیک کنید. حالا شبکه Somnia به لیست شبکه‌های شما اضافه شده.</p>
+      </div>
+    </div>
+
+    <h3>استفاده از اپلیکیشن</h3>
+    <div class="steps">
+      <div class="step">
+        <p>به آدرس <code>http://localhost:3000</code> بروید.</p>
+      </div>
+      <div class="step">
+        <p>روی <strong>"Connect Wallet"</strong> کلیک کنید و کیف پول MetaMask خود را وصل کنید.</p>
+      </div>
+      <div class="step">
+        <p>اگر روی شبکه اشتباه هستید، یک بنر زرد ظاهر می‌شود. روی <strong>"Switch to Somnia"</strong> کلیک کنید.</p>
+      </div>
+      <div class="step">
+        <p>برای مینت کردن، روی دکمه <strong>"Mint"</strong> کلیک کنید و تراکنش را در MetaMask تأیید کنید.</p>
+      </div>
+      <div class="step">
+        <p>پس از تأیید تراکنش، توکن جدید در بخش <strong>"Your Inventory"</strong> نمایش داده می‌شود.</p>
+      </div>
+    </div>
+
+    <h3>اجرای پروژه برای توسعه‌دهندگان</h3>
+
+    <h3>سریع‌ترین راه: Docker Compose</h3>
+    <div class="code-block">
+# Start all services with one command
+docker compose up --build
+
+# Frontend: http://localhost:3000
+# Backend:  http://localhost:4000
+    </div>
+    <p>یا اگر می‌خواهید به صورت دستی اجرا کنید:</p>
+
+    <div class="code-block">
+# Start PostgreSQL database
+docker compose up db -d
+
+# Push database schema
+npm run db:push -w packages/backend
+
+# Start backend (port 4000)
+npm run dev:backend
+
+# Start frontend (port 3000) — in another terminal
+npm run dev:frontend
+    </div>
+
+    <h3>فایل‌های تنظیمات پروژه</h3>
+    <div class="highlight">
+      <p>
+        برای راه‌اندازی سریع، فایل‌های <code>.env.example</code> در هر پکیج قرار دارند.
+        کافی است آن‌ها را کپی کرده و مقادیر را تنظیم کنید:
+      </p>
+      <div class="code-block" style="margin-top:10px">
+cp packages/frontend/.env.example packages/frontend/.env.local
+cp packages/backend/.env.example packages/backend/.env
+      </div>
+      <p style="margin-top:10px">
+        همچنین فایل <code>README.md</code> در ریشه پروژه شامل توضیحات کامل درباره تکنولوژی‌ها، معماری و نحوه راه‌اندازی است.
+      </p>
+    </div>
+
+    <!-- ============================================ -->
+    <h2 id="architecture">&#x1F3D7;&#xFE0F; معماری پروژه</h2>
+    <p>این پروژه از ۳ بخش اصلی تشکیل شده:</p>
+
+    <div class="diagram">
+┌─────────────────────────────────────────────────────┐
+│                    USER (Browser)                    │
+│               MetaMask + Chrome/Firefox              │
+└──────────────┬──────────────────────┬───────────────┘
+               │                      │
+               ▼                      ▼
+┌──────────────────────┐  ┌──────────────────────────┐
+│   Frontend (:3000)   │  │   Somnia Blockchain      │
+│   Next.js + React    │──│   Smart Contract         │
+│   RainbowKit + wagmi │  │   (mint, upgrade,        │
+│                      │  │    balanceOfBatch)        │
+└──────────┬───────────┘  └──────────────────────────┘
+           │                          │
+           ▼                          │
+┌──────────────────────┐              │
+│   Backend (:4000)    │◄─────────────┘
+│   Express + Node.js  │  (Indexer reads blocks)
+│   Analytics API      │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│   PostgreSQL (:5432) │
+│   Transaction data   │
+│   Analytics storage  │
+└──────────────────────┘
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>بخش</th>
+          <th>تکنولوژی</th>
+          <th>وظیفه</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Frontend</strong></td>
+          <td>Next.js, React, wagmi, RainbowKit</td>
+          <td>رابط کاربری، اتصال کیف پول، مینت و ارتقا</td>
+        </tr>
+        <tr>
+          <td><strong>Backend</strong></td>
+          <td>Express, Drizzle ORM, viem</td>
+          <td>ایندکس کردن بلاکچین، API آنالیتیکس</td>
+        </tr>
+        <tr>
+          <td><strong>Database</strong></td>
+          <td>PostgreSQL</td>
+          <td>ذخیره تراکنش‌ها برای آنالیتیکس</td>
+        </tr>
+        <tr>
+          <td><strong>Shared</strong></td>
+          <td>TypeScript</td>
+          <td>تنظیمات مشترک: ABI قرارداد، آدرس‌ها، نادری‌ها</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight">
+      <h3>نکته فنی: ایندکسر (Indexer) چیست؟</h3>
+      <p>
+        ایندکسر بخشی از بک‌اند است که به طور مداوم بلاک‌های جدید بلاکچین را بررسی می‌کند.
+        هر تراکنشی که مربوط به قرارداد Moon Pass باشد را پیدا کرده و در دیتابیس ذخیره می‌کند.
+        این داده‌ها برای نمایش آمار و نمودارها در صفحه Analytics استفاده می‌شوند.
+      </p>
+    </div>
+
+    <!-- ============================================ -->
+    <h2 id="testing">&#x1F9EA; راهنمای تست بدون گس</h2>
+    <p>
+      برای انجام تراکنش روی بلاکچین (مینت، ارتقا) نیاز به ارز بومی شبکه برای پرداخت <strong>گس (Gas)</strong> دارید.
+      اگر گس ندارید، نگران نباشید! چندین راه برای تست اپلیکیشن وجود دارد:
+    </p>
+
+    <h3>&#x2460; بخش‌هایی که بدون گس کار می‌کنند</h3>
+    <p>حتی بدون هیچ ارزی، می‌توانید بخش‌های زیادی از اپلیکیشن را تست کنید:</p>
+    <div class="success">
+      <ul>
+        <li><strong>اتصال کیف پول:</strong> روی "Connect Wallet" کلیک کنید و MetaMask را وصل کنید — نیاز به گس ندارد</li>
+        <li><strong>تغییر شبکه:</strong> بنر "Switch to Somnia" را تست کنید — رایگان است</li>
+        <li><strong>مشاهده موجودی:</strong> اگر قبلاً توکن دارید، لیست توکن‌ها نمایش داده می‌شود — فقط خواندن از بلاکچین است و گس ندارد</li>
+        <li><strong>صفحه آنالیتیکس:</strong> نمودارها، جدول تراکنش‌ها و کارت‌های آماری — داده از بک‌اند خوانده می‌شود، نه از بلاکچین</li>
+        <li><strong>رابط کاربری:</strong> تمام دکمه‌ها، دیالوگ‌ها و صفحات قابل مشاهده و تست هستند</li>
+      </ul>
+    </div>
+
+    <h3>&#x2461; دریافت SOMI رایگان (فاست مین‌نت)</h3>
+    <p>
+      برای دریافت مقدار کمی SOMI رایگان جهت تست روی مین‌نت، از فاست (Faucet) استفاده کنید:
+    </p>
+    <div class="steps">
+      <div class="step">
+        <p>
+          به سایت <a href="https://stakely.io/faucet/somnia-somi" target="_blank">Stakely Somnia Faucet</a> بروید.
+        </p>
+      </div>
+      <div class="step">
+        <p>آدرس کیف پول MetaMask خود را وارد کنید و کپچا را حل کنید.</p>
+      </div>
+      <div class="step">
+        <p>
+          یک توییت با شناسه درخواست خود بنویسید (سایت لینک و متن را آماده می‌کند).
+        </p>
+      </div>
+      <div class="step">
+        <p>
+          پس از تأیید توییت، مقداری SOMI به کیف پول شما ارسال می‌شود.
+          این مقدار برای چندین تراکنش مینت و ارتقا کافی است.
+        </p>
+      </div>
+    </div>
+
+    <h3>&#x2462; تست روی تست‌نت (Testnet) با توکن رایگان</h3>
+    <p>
+      اگر نمی‌خواهید با مین‌نت کار کنید، می‌توانید از تست‌نت Somnia استفاده کنید.
+      توکن‌های تست‌نت (STT) کاملاً <strong>رایگان</strong> هستند.
+    </p>
+    <div class="warning">
+      <strong>&#x26A0;&#xFE0F; توجه مهم:</strong> قرارداد Moon Pass فعلاً فقط روی مین‌نت دیپلوی شده.
+      برای تست کامل روی تست‌نت، باید قرارداد را مجدداً روی تست‌نت دیپلوی کنید.
+      اما می‌توانید از تست‌نت برای تست اتصال کیف پول و رابط کاربری استفاده کنید.
+    </div>
+
+    <p><strong>دریافت STT رایگان:</strong></p>
+    <table>
+      <thead>
+        <tr>
+          <th>فاست (Faucet)</th>
+          <th>آدرس</th>
+          <th>توضیح</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>فاست رسمی Somnia</strong></td>
+          <td><a href="https://testnet.somnia.network/" target="_blank">testnet.somnia.network</a></td>
+          <td>فاست رسمی شبکه تست‌نت — ساده‌ترین راه</td>
+        </tr>
+        <tr>
+          <td><strong>Gas.zip</strong></td>
+          <td><a href="https://www.gas.zip/faucet/somnia" target="_blank">gas.zip/faucet/somnia</a></td>
+          <td>تا ۰.۵ STT هر ۲۴ ساعت — بدون نیاز به توییت</td>
+        </tr>
+        <tr>
+          <td><strong>دیسکورد Somnia</strong></td>
+          <td><a href="https://discord.gg/somnia" target="_blank">discord.gg/somnia</a></td>
+          <td>در کانال <code>#dev-chat</code> از تیم توسعه درخواست STT کنید</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>فعال‌سازی تست‌نت در اپلیکیشن:</strong></p>
+    <div class="code-block">
+# فایل packages/frontend/.env.local را ویرایش کنید:
+NEXT_PUBLIC_USE_TESTNET=true
+NEXT_PUBLIC_API_URL=http://localhost:4000
+
+# سپس سرور فرانت‌اند را ری‌استارت کنید
+    </div>
+
+    <h3>&#x2463; تست فقط رابط کاربری (بدون بلاکچین)</h3>
+    <p>
+      حتی بدون اتصال کیف پول می‌توانید بخش‌های مختلف را ببینید:
+    </p>
+    <div class="highlight">
+      <ul>
+        <li>صفحه اصلی (<code>/</code>): دکمه "Connect wallet to mint" نمایش داده می‌شود</li>
+        <li>صفحه آنالیتیکس (<code>/analytics</code>): اگر بک‌اند در حال اجراست، داده‌های واقعی از بلاکچین نمایش داده می‌شود (بدون نیاز به کیف پول)</li>
+        <li>هدر و ناوبری: منوی بالا با لینک‌های صفحات کار می‌کند</li>
+        <li>دیالوگ ارتقا: اگر کیف پول وصل باشد ولی توکن نداشته باشید، دکمه Upgrade غیرفعال نمایش داده می‌شود</li>
+      </ul>
+    </div>
+
+    <h3>&#x2464; خلاصه: چه چیزی برای هر تست لازم است؟</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>قابلیت</th>
+          <th>نیاز به کیف پول؟</th>
+          <th>نیاز به گس؟</th>
+          <th>نیاز به مین‌نت؟</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>مشاهده رابط کاربری</td>
+          <td style="color:#86efac">خیر</td>
+          <td style="color:#86efac">خیر</td>
+          <td style="color:#86efac">خیر</td>
+        </tr>
+        <tr>
+          <td>صفحه آنالیتیکس</td>
+          <td style="color:#86efac">خیر</td>
+          <td style="color:#86efac">خیر</td>
+          <td style="color:#86efac">خیر</td>
+        </tr>
+        <tr>
+          <td>اتصال کیف پول</td>
+          <td style="color:#fcd34d">بله</td>
+          <td style="color:#86efac">خیر</td>
+          <td style="color:#86efac">خیر</td>
+        </tr>
+        <tr>
+          <td>مشاهده موجودی توکن‌ها</td>
+          <td style="color:#fcd34d">بله</td>
+          <td style="color:#86efac">خیر</td>
+          <td style="color:#fcd34d">بله</td>
+        </tr>
+        <tr>
+          <td>مینت کردن</td>
+          <td style="color:#fcd34d">بله</td>
+          <td style="color:#f87171">بله (SOMI)</td>
+          <td style="color:#fcd34d">بله</td>
+        </tr>
+        <tr>
+          <td>ارتقا دادن</td>
+          <td style="color:#fcd34d">بله</td>
+          <td style="color:#f87171">بله (SOMI)</td>
+          <td style="color:#fcd34d">بله</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br>
+    <hr style="border-color: #333;">
+    <p style="text-align: center; color: #666; margin-top: 20px;">
+      Intraverse dApp — ساخته شده با &#x2764;&#xFE0F; روی بلاکچین Somnia
+    </p>
+
+  </div>
+</body>
+</html>
