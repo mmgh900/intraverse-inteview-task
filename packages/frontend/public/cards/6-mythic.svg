@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a0a0a"/>
+      <stop offset="100%" stop-color="#3d1515"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCA5A5"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="orb" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.2"/>
+      <stop offset="70%" stop-color="#EF4444" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.4"/>
+  <!-- Fire-like waves -->
+  <g opacity="0.07" fill="none" stroke="#EF4444" stroke-width="1.2">
+    <path d="M0,400 Q100,350 200,380 Q300,410 400,360"/>
+    <path d="M0,350 Q100,300 200,330 Q300,360 400,310"/>
+    <path d="M0,300 Q100,250 200,280 Q300,310 400,260"/>
+    <path d="M0,250 Q100,200 200,230 Q300,260 400,210"/>
+  </g>
+  <circle cx="200" cy="240" r="150" fill="url(#orb)"/>
+  <!-- Phoenix wings -->
+  <g filter="url(#glow)">
+    <path d="M200,180 Q140,200 100,160 Q120,240 140,280 Q170,250 200,260" fill="none" stroke="#EF4444" stroke-width="2" opacity="0.45"/>
+    <path d="M200,180 Q260,200 300,160 Q280,240 260,280 Q230,250 200,260" fill="none" stroke="#EF4444" stroke-width="2" opacity="0.45"/>
+    <path d="M200,260 Q180,310 160,360" fill="none" stroke="#EF4444" stroke-width="1.5" opacity="0.3"/>
+    <path d="M200,260 Q220,310 240,360" fill="none" stroke="#EF4444" stroke-width="1.5" opacity="0.3"/>
+    <path d="M200,260 L200,370" stroke="#EF4444" stroke-width="1.5" opacity="0.25"/>
+  </g>
+  <!-- Eye -->
+  <circle cx="200" cy="230" r="15" fill="#EF4444" opacity="0.15"/>
+  <circle cx="200" cy="230" r="6" fill="#EF4444" opacity="0.5"/>
+  <circle cx="200" cy="230" r="2" fill="#FCA5A5" opacity="0.9"/>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#EF4444">MYTHIC</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#EF4444" opacity="0.5">x20 Multiplier</text>
+</svg>

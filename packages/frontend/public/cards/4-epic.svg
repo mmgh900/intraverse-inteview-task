@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0a2e"/>
+      <stop offset="100%" stop-color="#2d1650"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C084FC"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="orb" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.35"/>
+  <!-- Abstract pattern: diagonal streaks -->
+  <g opacity="0.06" stroke="#A855F7" fill="none" stroke-width="1">
+    <line x1="0" y1="0" x2="400" y2="520"/>
+    <line x1="100" y1="0" x2="400" y2="390"/>
+    <line x1="0" y1="130" x2="300" y2="520"/>
+    <line x1="400" y1="0" x2="0" y2="520"/>
+    <line x1="300" y1="0" x2="0" y2="390"/>
+    <line x1="400" y1="130" x2="100" y2="520"/>
+  </g>
+  <!-- Radial glow -->
+  <circle cx="200" cy="260" r="120" fill="url(#orb)"/>
+  <!-- Star shape -->
+  <g filter="url(#glow)">
+    <polygon points="200,140 220,230 310,230 235,285 260,375 200,320 140,375 165,285 90,230 180,230" fill="none" stroke="#A855F7" stroke-width="2" opacity="0.4"/>
+    <polygon points="200,180 212,235 270,235 222,268 238,330 200,295 162,330 178,268 130,235 188,235" fill="none" stroke="#A855F7" stroke-width="1" opacity="0.2"/>
+  </g>
+  <!-- Center -->
+  <circle cx="200" cy="260" r="12" fill="#A855F7" opacity="0.35"/>
+  <circle cx="200" cy="260" r="4" fill="#C084FC" opacity="0.8"/>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#A855F7">EPIC</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#A855F7" opacity="0.5">x4 Multiplier</text>
+</svg>

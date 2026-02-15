@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1f0a"/>
+      <stop offset="100%" stop-color="#1a2e1a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22C55E"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3"/>
+  <!-- Abstract pattern: leaf-like curves -->
+  <g opacity="0.07" stroke="#22C55E" fill="none" stroke-width="1">
+    <path d="M50,520 Q200,350 350,520"/>
+    <path d="M0,400 Q200,250 400,400"/>
+    <path d="M0,280 Q200,150 400,280"/>
+    <path d="M50,0 Q200,170 350,0"/>
+  </g>
+  <!-- Hexagonal frame -->
+  <g filter="url(#glow)">
+    <polygon points="200,150 270,200 270,320 200,370 130,320 130,200" fill="none" stroke="#22C55E" stroke-width="2" opacity="0.35"/>
+    <polygon points="200,175 250,210 250,310 200,345 150,310 150,210" fill="none" stroke="#22C55E" stroke-width="1.5" opacity="0.2"/>
+  </g>
+  <!-- Center orb -->
+  <circle cx="200" cy="260" r="25" fill="#22C55E" opacity="0.1"/>
+  <circle cx="200" cy="260" r="10" fill="#22C55E" opacity="0.35"/>
+  <circle cx="200" cy="260" r="3" fill="#22C55E" opacity="0.7"/>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#22C55E">UNCOMMON</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#22C55E" opacity="0.5">x1.5 Multiplier</text>
+</svg>

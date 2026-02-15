@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0f00"/>
+      <stop offset="50%" stop-color="#2e1a05"/>
+      <stop offset="100%" stop-color="#1a0f00"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDBA74"/>
+      <stop offset="50%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="orb" cx="50%" cy="40%">
+      <stop offset="0%" stop-color="#F97316" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#F97316" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="2.5" opacity="0.5"/>
+  <!-- Flame pillars -->
+  <g opacity="0.08" stroke="#F97316" fill="none" stroke-width="1">
+    <path d="M100,520 Q95,400 110,300 Q100,200 120,100"/>
+    <path d="M300,520 Q305,400 290,300 Q300,200 280,100"/>
+    <path d="M150,520 Q145,420 155,340"/>
+    <path d="M250,520 Q255,420 245,340"/>
+  </g>
+  <circle cx="200" cy="230" r="160" fill="url(#orb)"/>
+  <!-- Ouroboros (circular serpent) -->
+  <g filter="url(#glow)">
+    <circle cx="200" cy="240" r="90" fill="none" stroke="#F97316" stroke-width="3" opacity="0.4" stroke-dasharray="8 4"/>
+    <circle cx="200" cy="240" r="70" fill="none" stroke="#F97316" stroke-width="1.5" opacity="0.25"/>
+    <circle cx="200" cy="240" r="110" fill="none" stroke="#F97316" stroke-width="1" opacity="0.15"/>
+    <!-- Arrow head on circle -->
+    <polygon points="200,150 210,165 190,165" fill="#F97316" opacity="0.5"/>
+    <!-- Inner eye -->
+    <ellipse cx="200" cy="240" rx="25" ry="15" fill="none" stroke="#F97316" stroke-width="2" opacity="0.4"/>
+  </g>
+  <circle cx="200" cy="240" r="6" fill="#F97316" opacity="0.5"/>
+  <circle cx="200" cy="240" r="2.5" fill="#FDBA74" opacity="0.9"/>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#F97316">ETERNAL</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#F97316" opacity="0.5">x90 Multiplier</text>
+</svg>

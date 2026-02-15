@@ -14,9 +14,9 @@ interface TokenGridProps {
 export function TokenGrid({ balances, isLoading, isError, error, renderUpgrade }: TokenGridProps) {
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {Array.from({ length: 13 }).map((_, i) => (
-          <Skeleton key={i} className="h-32 rounded-xl" />
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <Skeleton key={i} className="h-52 rounded-xl bg-white/[0.03]" />
         ))}
       </div>
     );
@@ -24,9 +24,9 @@ export function TokenGrid({ balances, isLoading, isError, error, renderUpgrade }
 
   if (isError) {
     return (
-      <div className="text-center py-12 text-red-400">
-        <p className="text-lg">Failed to load balances</p>
-        <p className="text-sm mt-1 text-gray-500">
+      <div className="py-16 text-center">
+        <p className="text-red-400">Failed to load balances</p>
+        <p className="text-sm mt-1 text-zinc-500">
           {error?.message?.split("\n")[0] || "Check your network connection"}
         </p>
       </div>
@@ -34,7 +34,7 @@ export function TokenGrid({ balances, isLoading, isError, error, renderUpgrade }
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
       {RARITIES.map((rarity) => (
         <TokenCard
           key={rarity.id}

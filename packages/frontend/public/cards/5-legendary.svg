@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1400"/>
+      <stop offset="50%" stop-color="#2e2200"/>
+      <stop offset="100%" stop-color="#1a1400"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="orb" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.4"/>
+  <!-- Abstract pattern: radial rays -->
+  <g opacity="0.06" stroke="#F59E0B" fill="none" stroke-width="0.8">
+    <line x1="200" y1="260" x2="200" y2="0"/><line x1="200" y1="260" x2="400" y2="60"/>
+    <line x1="200" y1="260" x2="400" y2="260"/><line x1="200" y1="260" x2="400" y2="460"/>
+    <line x1="200" y1="260" x2="200" y2="520"/><line x1="200" y1="260" x2="0" y2="460"/>
+    <line x1="200" y1="260" x2="0" y2="260"/><line x1="200" y1="260" x2="0" y2="60"/>
+    <line x1="200" y1="260" x2="100" y2="0"/><line x1="200" y1="260" x2="300" y2="0"/>
+    <line x1="200" y1="260" x2="100" y2="520"/><line x1="200" y1="260" x2="300" y2="520"/>
+  </g>
+  <circle cx="200" cy="260" r="140" fill="url(#orb)"/>
+  <!-- Crown shape -->
+  <g filter="url(#glow)">
+    <polygon points="120,300 140,180 170,240 200,150 230,240 260,180 280,300" fill="none" stroke="#F59E0B" stroke-width="2.5" opacity="0.5"/>
+    <line x1="120" y1="300" x2="280" y2="300" stroke="#F59E0B" stroke-width="2" opacity="0.4"/>
+    <circle cx="200" cy="150" r="6" fill="#FCD34D" opacity="0.5"/>
+    <circle cx="140" cy="180" r="4" fill="#FCD34D" opacity="0.4"/>
+    <circle cx="260" cy="180" r="4" fill="#FCD34D" opacity="0.4"/>
+  </g>
+  <!-- Lower decoration -->
+  <g filter="url(#glow)" opacity="0.3">
+    <line x1="140" y1="330" x2="260" y2="330" stroke="#F59E0B" stroke-width="1.5"/>
+    <line x1="160" y1="350" x2="240" y2="350" stroke="#F59E0B" stroke-width="1"/>
+  </g>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#F59E0B">LEGENDARY</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#F59E0B" opacity="0.5">x10 Multiplier</text>
+</svg>

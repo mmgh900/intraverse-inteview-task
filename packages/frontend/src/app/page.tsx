@@ -17,24 +17,31 @@ export default function MintPage() {
   }, [refetch]);
 
   return (
-    <div className="space-y-8">
-      <div className="flex items-center justify-between">
+    <div className="space-y-10 fade-in">
+      <div className="flex items-end justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Moon Pass Collection</h1>
-          <p className="text-gray-400 mt-1">Mint and manage your Moon Pass tokens</p>
+          <h1 className="text-2xl font-semibold tracking-tight text-white">
+            Moon Pass Collection
+          </h1>
+          <p className="text-sm text-zinc-500 mt-1">
+            Mint, collect, and upgrade your tokens on Somnia
+          </p>
         </div>
-        <div>
-          <MintButton onSuccess={handleMintSuccess} />
-        </div>
+        <MintButton onSuccess={handleMintSuccess} />
       </div>
 
-      <div className="rounded-lg border border-gray-800 bg-gray-900 p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-white">Your Inventory</h2>
+      <section className="glass p-6">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+            Inventory
+          </h2>
           {isConnected && <TokenInventory totalTokens={totalTokens} />}
         </div>
+
         {!isConnected ? (
-          <p className="text-gray-500">Connect your wallet to view your tokens</p>
+          <div className="py-16 text-center">
+            <p className="text-zinc-500">Connect your wallet to view tokens</p>
+          </div>
         ) : (
           <TokenGrid
             balances={balances}
@@ -50,7 +57,7 @@ export default function MintPage() {
             )}
           />
         )}
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1500"/>
+      <stop offset="50%" stop-color="#2e2500"/>
+      <stop offset="100%" stop-color="#1a1000"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="50%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="50%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="orb" cx="50%" cy="40%">
+      <stop offset="0%" stop-color="#FBBF24" stop-opacity="0.4"/>
+      <stop offset="40%" stop-color="#FBBF24" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FBBF24" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.6"/>
+  <!-- Radiating light beams -->
+  <g opacity="0.06" stroke="#FBBF24" stroke-width="1">
+    <line x1="200" y1="230" x2="200" y2="0"/><line x1="200" y1="230" x2="400" y2="30"/>
+    <line x1="200" y1="230" x2="400" y2="230"/><line x1="200" y1="230" x2="400" y2="430"/>
+    <line x1="200" y1="230" x2="200" y2="520"/><line x1="200" y1="230" x2="0" y2="430"/>
+    <line x1="200" y1="230" x2="0" y2="230"/><line x1="200" y1="230" x2="0" y2="30"/>
+    <line x1="200" y1="230" x2="100" y2="0"/><line x1="200" y1="230" x2="300" y2="0"/>
+    <line x1="200" y1="230" x2="400" y2="130"/><line x1="200" y1="230" x2="400" y2="330"/>
+    <line x1="200" y1="230" x2="300" y2="520"/><line x1="200" y1="230" x2="100" y2="520"/>
+    <line x1="200" y1="230" x2="0" y2="330"/><line x1="200" y1="230" x2="0" y2="130"/>
+  </g>
+  <!-- Scattered sparkles -->
+  <g fill="#FBBF24">
+    <circle cx="80" cy="80" r="2" opacity="0.4"/><circle cx="320" cy="100" r="2.5" opacity="0.35"/>
+    <circle cx="60" cy="300" r="1.8" opacity="0.3"/><circle cx="340" cy="250" r="2" opacity="0.35"/>
+    <circle cx="100" cy="430" r="1.5" opacity="0.25"/><circle cx="300" cy="400" r="2" opacity="0.3"/>
+    <circle cx="150" cy="120" r="1.2" opacity="0.2"/><circle cx="250" cy="80" r="1.5" opacity="0.25"/>
+    <circle cx="70" cy="180" r="1" opacity="0.2"/><circle cx="330" cy="370" r="1.3" opacity="0.25"/>
+  </g>
+  <circle cx="200" cy="230" r="170" fill="url(#orb)"/>
+  <!-- Supreme crown + all-seeing eye -->
+  <g filter="url(#glow)">
+    <!-- Crown -->
+    <path d="M100,260 L120,160 L155,210 L200,130 L245,210 L280,160 L300,260 Z" fill="none" stroke="url(#gold)" stroke-width="3" opacity="0.55"/>
+    <!-- Crown jewels -->
+    <circle cx="200" cy="130" r="7" fill="#FBBF24" opacity="0.4"/>
+    <circle cx="120" cy="160" r="5" fill="#FBBF24" opacity="0.3"/>
+    <circle cx="280" cy="160" r="5" fill="#FBBF24" opacity="0.3"/>
+    <!-- Eye below crown -->
+    <ellipse cx="200" cy="300" rx="60" ry="25" fill="none" stroke="#FBBF24" stroke-width="2" opacity="0.4"/>
+    <circle cx="200" cy="300" r="12" fill="#FBBF24" opacity="0.2"/>
+    <circle cx="200" cy="300" r="5" fill="#FBBF24" opacity="0.5"/>
+    <!-- Rays from eye -->
+    <line x1="200" y1="275" x2="200" y2="250" stroke="#FBBF24" stroke-width="1" opacity="0.25"/>
+    <line x1="175" y1="280" x2="160" y2="260" stroke="#FBBF24" stroke-width="1" opacity="0.2"/>
+    <line x1="225" y1="280" x2="240" y2="260" stroke="#FBBF24" stroke-width="1" opacity="0.2"/>
+    <!-- Base lines -->
+    <line x1="120" y1="340" x2="280" y2="340" stroke="#FBBF24" stroke-width="1.5" opacity="0.3"/>
+    <line x1="140" y1="355" x2="260" y2="355" stroke="#FBBF24" stroke-width="1" opacity="0.2"/>
+    <line x1="160" y1="370" x2="240" y2="370" stroke="#FBBF24" stroke-width="0.8" opacity="0.15"/>
+  </g>
+  <circle cx="200" cy="300" r="2" fill="#FEF08A" opacity="0.95"/>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#FBBF24">SUPREME</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#FBBF24" opacity="0.5">x120 Multiplier</text>
+</svg>

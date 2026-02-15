@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f0a20"/>
+      <stop offset="100%" stop-color="#30142e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9A8D4"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="orb" cx="50%" cy="45%">
+      <stop offset="0%" stop-color="#EC4899" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.4"/>
+  <!-- Halo rings -->
+  <g opacity="0.06" stroke="#EC4899" fill="none" stroke-width="1">
+    <ellipse cx="200" cy="180" rx="120" ry="30"/>
+    <ellipse cx="200" cy="180" rx="100" ry="25"/>
+    <ellipse cx="200" cy="180" rx="80" ry="20"/>
+  </g>
+  <circle cx="200" cy="250" r="150" fill="url(#orb)"/>
+  <!-- Angel wings -->
+  <g filter="url(#glow)">
+    <path d="M200,200 Q150,170 80,180 Q100,220 120,250 Q150,230 200,240" fill="none" stroke="#EC4899" stroke-width="2" opacity="0.45"/>
+    <path d="M200,200 Q250,170 320,180 Q300,220 280,250 Q250,230 200,240" fill="none" stroke="#EC4899" stroke-width="2" opacity="0.45"/>
+    <!-- Inner wings -->
+    <path d="M200,210 Q160,195 110,200 Q125,225 140,245 Q165,230 200,240" fill="none" stroke="#EC4899" stroke-width="1.2" opacity="0.25"/>
+    <path d="M200,210 Q240,195 290,200 Q275,225 260,245 Q235,230 200,240" fill="none" stroke="#EC4899" stroke-width="1.2" opacity="0.25"/>
+    <!-- Body -->
+    <line x1="200" y1="240" x2="200" y2="370" stroke="#EC4899" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="200" cy="200" r="12" fill="none" stroke="#EC4899" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  <!-- Center glow -->
+  <circle cx="200" cy="200" r="5" fill="#F9A8D4" opacity="0.6"/>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#EC4899">DIVINE</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#EC4899" opacity="0.5">x44 Multiplier</text>
+</svg>

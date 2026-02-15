@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041820"/>
+      <stop offset="100%" stop-color="#0a2a35"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67E8F9"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="orb" cx="50%" cy="45%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.45"/>
+  <!-- DNA helix pattern -->
+  <g opacity="0.08" stroke="#06B6D4" fill="none" stroke-width="1">
+    <path d="M160,0 Q240,65 160,130 Q80,195 160,260 Q240,325 160,390 Q80,455 160,520"/>
+    <path d="M240,0 Q160,65 240,130 Q320,195 240,260 Q160,325 240,390 Q320,455 240,520"/>
+  </g>
+  <circle cx="200" cy="240" r="150" fill="url(#orb)"/>
+  <!-- Sacred geometry: Metatron's cube simplified -->
+  <g filter="url(#glow)">
+    <circle cx="200" cy="240" r="80" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="200" cy="240" r="50" fill="none" stroke="#06B6D4" stroke-width="1.5" opacity="0.25"/>
+    <!-- Hexagon -->
+    <polygon points="200,160 269,200 269,280 200,320 131,280 131,200" fill="none" stroke="#06B6D4" stroke-width="2" opacity="0.4"/>
+    <!-- Inner triangle up -->
+    <polygon points="200,175 255,280 145,280" fill="none" stroke="#06B6D4" stroke-width="1" opacity="0.2"/>
+    <!-- Inner triangle down -->
+    <polygon points="200,305 145,200 255,200" fill="none" stroke="#06B6D4" stroke-width="1" opacity="0.2"/>
+  </g>
+  <circle cx="200" cy="240" r="8" fill="#06B6D4" opacity="0.4"/>
+  <circle cx="200" cy="240" r="3" fill="#67E8F9" opacity="0.8"/>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#06B6D4">TRANSCENDENT</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#06B6D4" opacity="0.5">x70 Multiplier</text>
+</svg>

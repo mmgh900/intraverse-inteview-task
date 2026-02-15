@@ -17,14 +17,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} min-h-screen bg-gray-950 text-gray-100`}>
+      <body className={`${inter.className} min-h-screen bg-[#0a0a0a] text-gray-100 antialiased`}>
         <Web3Provider>
           <Header />
-          <main className="container mx-auto px-4 py-8">
+          <main className="mx-auto max-w-7xl px-6 py-10">
             {children}
           </main>
         </Web3Provider>
-        <Toaster theme="dark" position="bottom-right" />
+        <Toaster theme="dark" position="bottom-right" richColors />
       </body>
     </html>
   );

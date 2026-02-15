@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#162040"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.35"/>
+  <!-- Abstract pattern: concentric circles -->
+  <g opacity="0.06" stroke="#3B82F6" fill="none" stroke-width="0.8">
+    <circle cx="200" cy="260" r="60"/>
+    <circle cx="200" cy="260" r="100"/>
+    <circle cx="200" cy="260" r="140"/>
+    <circle cx="200" cy="260" r="180"/>
+    <circle cx="200" cy="260" r="220"/>
+  </g>
+  <!-- Crystal shape -->
+  <g filter="url(#glow)">
+    <polygon points="200,130 280,220 260,360 200,390 140,360 120,220" fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.4"/>
+    <line x1="200" y1="130" x2="200" y2="390" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+    <line x1="120" y1="220" x2="280" y2="220" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+    <line x1="140" y1="360" x2="260" y2="360" stroke="#3B82F6" stroke-width="1" opacity="0.15"/>
+  </g>
+  <!-- Center orb -->
+  <circle cx="200" cy="260" r="30" fill="#3B82F6" opacity="0.08"/>
+  <circle cx="200" cy="260" r="14" fill="#3B82F6" opacity="0.3"/>
+  <circle cx="200" cy="260" r="5" fill="#60A5FA" opacity="0.7"/>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#3B82F6">RARE</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#3B82F6" opacity="0.5">x2 Multiplier</text>
+</svg>

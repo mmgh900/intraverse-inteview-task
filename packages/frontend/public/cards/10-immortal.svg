@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#021a1a"/>
+      <stop offset="100%" stop-color="#0a2e2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5EEAD4"/>
+      <stop offset="100%" stop-color="#14B8A6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="orb" cx="50%" cy="45%">
+      <stop offset="0%" stop-color="#14B8A6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#14B8A6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="520" rx="20" fill="url(#bg)"/>
+  <rect x="2" y="2" width="396" height="516" rx="18" fill="none" stroke="url(#accent)" stroke-width="2.5" opacity="0.45"/>
+  <!-- Infinity waves -->
+  <g opacity="0.07" stroke="#14B8A6" fill="none" stroke-width="1.2">
+    <path d="M100,260 Q200,180 300,260 Q200,340 100,260"/>
+    <path d="M80,260 Q200,160 320,260 Q200,360 80,260"/>
+    <path d="M60,260 Q200,140 340,260 Q200,380 60,260"/>
+  </g>
+  <circle cx="200" cy="250" r="140" fill="url(#orb)"/>
+  <!-- Infinity symbol -->
+  <g filter="url(#glow)">
+    <path d="M200,250 Q130,170 80,250 Q130,330 200,250 Q270,170 320,250 Q270,330 200,250" fill="none" stroke="#14B8A6" stroke-width="3" opacity="0.5"/>
+    <path d="M200,250 Q145,195 110,250 Q145,305 200,250 Q255,195 290,250 Q255,305 200,250" fill="none" stroke="#14B8A6" stroke-width="1.5" opacity="0.25"/>
+    <!-- Vertical beam -->
+    <line x1="200" y1="140" x2="200" y2="360" stroke="#14B8A6" stroke-width="1" opacity="0.2"/>
+  </g>
+  <!-- Nodes -->
+  <circle cx="80" cy="250" r="5" fill="#14B8A6" opacity="0.35"/>
+  <circle cx="320" cy="250" r="5" fill="#14B8A6" opacity="0.35"/>
+  <circle cx="200" cy="250" r="8" fill="#14B8A6" opacity="0.4"/>
+  <circle cx="200" cy="250" r="3" fill="#5EEAD4" opacity="0.8"/>
+  <!-- Title -->
+  <text x="200" y="460" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#14B8A6">IMMORTAL</text>
+  <text x="200" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#14B8A6" opacity="0.5">x80 Multiplier</text>
+</svg>

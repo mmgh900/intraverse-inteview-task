@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { MintStatus } from "@/components/mint/MintStatus";
 import { useEffect, useRef } from "react";
 import { useNotifications } from "@/context/NotificationContext";
+import { Loader2 } from "lucide-react";
 
 interface MintButtonProps {
   onSuccess?: () => void;
@@ -44,7 +45,7 @@ export function MintButton({ onSuccess }: MintButtonProps) {
 
   if (!isConnected) {
     return (
-      <Button disabled className="opacity-50">
+      <Button disabled className="opacity-40 cursor-not-allowed">
         Connect wallet to mint
       </Button>
     );
@@ -57,13 +58,17 @@ export function MintButton({ onSuccess }: MintButtonProps) {
     mint(address);
   };
 
+  const isWorking = isPending || isConfirming;
+
   return (
     <div className="flex flex-col items-end gap-2">
       <Button
         onClick={handleMint}
-        disabled={isPending || isConfirming}
+        disabled={isWorking}
+        className="bg-white text-black hover:bg-zinc-200 font-medium px-5 h-9 text-sm transition-colors"
       >
-        {isPending ? "Confirm in wallet..." : isConfirming ? "Confirming..." : "Mint"}
+        {isWorking && <Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" />}
+        {isPending ? "Confirm in wallet..." : isConfirming ? "Confirming..." : "Mint Token"}
       </Button>
       {hash && <MintStatus hash={hash} isConfirming={isConfirming} isConfirmed={isConfirmed} />}
     </div>
