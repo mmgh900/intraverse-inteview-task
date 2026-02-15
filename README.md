@@ -679,16 +679,6 @@ Every major technology choice (wagmi vs ethers, Drizzle vs Prisma, Docker multi-
 
 ---
 
-## 📦 Deliverables
-
-- [x] Source code in Git repository with clear commit history
-- [x] README.md with technology justifications (this document)
-- [x] DEPLOYMENT.md with production deployment guide
-- [x] docker-compose.yml for one-command setup
-- [x] .env.example with all variables documented
-- [x] Farsi user guide (docs/guide.html)
-
----
 
 ## 🚢 Deployment
 
@@ -699,16 +689,6 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on:
 - Managed PostgreSQL configuration
 - Monitoring and troubleshooting
 
----
-
-## 📝 License & Attribution
-
-This project was built for the Intraverse Full-Stack Developer hiring task.
-
-**Contract:** `0xC82E0CE02623972330164657e8C3e568d8f351FA` (Somnia Mainnet)
-**Network:** Somnia (Chain ID 5031)
-**Developer:** Mahdi Gheysari
-**Completion Date:** February 2026
 
 ---
 
